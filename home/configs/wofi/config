@@ -3,3 +3,4 @@ height=400
 mode=run
 colors=colors
 filter_rate=100
+allow_images=true

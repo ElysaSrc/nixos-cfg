@@ -25,6 +25,10 @@ in {
       };
     };
 
+    fonts.fonts = with pkgs; [
+      jetbrains-mono
+    ];
+
     # Various usefull GUI services
     services.dbus.enable = true;
     security.rtkit.enable = true;
