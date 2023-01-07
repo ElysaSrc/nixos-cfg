@@ -5,7 +5,7 @@ let
 in ''
   window {
     background-color: ${c.background.medium};
-    border-color: ${c.green};
+    border-color: ${c.bright.purple};
     border-width: 2px;
     border-style: solid;
     border-radius: 5px;
@@ -51,7 +51,7 @@ in ''
   }
 
   #entry:selected {
-    background-color: ${c.green};
+    background-color: ${c.purple};
     border: none;
     border-radius: 0;
     outline: none;

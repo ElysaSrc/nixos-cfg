@@ -20,7 +20,7 @@ general {
     gaps_in = 5
     gaps_out = 20
     border_size = 2
-    col.active_border = rgba(${c.nohex c.green}ee) rgba(${c.nohex c.white}ee) 45deg
+    col.active_border = rgba(${c.nohex c.purple}ee) rgba(${c.nohex c.white}ee) 45deg
     col.inactive_border = rgba(${c.nohex c.dim.white}aa)
     layout = dwindle
 }
@@ -61,12 +61,13 @@ $mainMod = SUPER
 
 bind = $mainMod, Return, exec, alacritty
 bind = $mainMod_SHIFT, Return, exec, firefox
+bind = $mainMod, Space, exec, wofi --show drun
 
 bind = $mainMod, Q, killactive, 
 bind = $mainMod, M, exit, 
 bind = $mainMod, E, exec, dolphin
 bind = $mainMod, V, togglefloating, 
-bind = $mainMod, Space, exec, wofi --show drun
+bind = $mainMod, F, fullscreen, 0
 
 bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
