@@ -9,11 +9,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # Default programs installed
-    environment.systemPackages = with pkgs; [
-      kitty
-    ];
-
     # Hyprland itself
     programs.hyprland = {
       enable = true;
@@ -61,19 +56,19 @@ in {
     boot.kernelModules = [ "v4l2loopback" ];
 
     environment.sessionVariables = {
-        CLUTTER_BACKEND = "wayland";
-        GBM_BACKEND = "nvidia-drm";
-        GLFW_IM_MODULE = "ibus";
-        LIBSEAT_BACKEND = "logind";
-        LIBVA_DRIVER_NAME = "nvidia";
-        NIXPKGS_ALLOW_UNFREE = "1";
-        QT_QPA_PLATFORM = "wayland";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        WLR_BACKEND = "vulkan";
-        WLR_NO_HARDWARE_CURSORS = "1";
-        WLR_RENDERER = "vulkan";
-        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-        NIXOS_OZONE_WL = "1";
+      CLUTTER_BACKEND = "wayland";
+      GBM_BACKEND = "nvidia-drm";
+      GLFW_IM_MODULE = "ibus";
+      LIBSEAT_BACKEND = "logind";
+      LIBVA_DRIVER_NAME = "nvidia";
+      NIXPKGS_ALLOW_UNFREE = "1";
+      QT_QPA_PLATFORM = "wayland";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      WLR_BACKEND = "vulkan";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_RENDERER = "vulkan";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      NIXOS_OZONE_WL = "1";
     };
   };
 }

@@ -31,8 +31,7 @@
         name = x;
         value = import (./modules + "/${x}");
       })
-      (builtins.attrNames (builtins.readDir ./modules))
-    );
+      (builtins.attrNames (builtins.readDir ./modules)));
 
     # Each subdirectory in ./hosts is a host. Add them all to
     # nixosConfigurations. Host configurations need a file called
@@ -67,7 +66,6 @@
           ];
         };
       })
-      (builtins.attrNames (builtins.readDir ./hosts))
-    );
+      (builtins.attrNames (builtins.readDir ./hosts)));
   };
 }

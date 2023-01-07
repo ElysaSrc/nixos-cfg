@@ -1,3 +1,6 @@
+let
+  c = import ../lib/colors.nix { lib = lib; };
+in ''
 monitor=HDMI-A-2,3840x2160,1920x0,2
 monitor=DP-1,1920x1080,3840x0,1
 monitor=DP-2,1920x1080,0x0,1
@@ -15,8 +18,8 @@ general {
     gaps_in = 5
     gaps_out = 20
     border_size = 2
-    col.active_border = rgba(689d6aee) rgba(ebdbb2ee) 45deg
-    col.inactive_border = rgba(595959aa)
+    col.active_border = rgba(${c.green}ee) rgba(${c.white}ee) 45deg
+    col.inactive_border = rgba(${c.dim.white}aa)
     layout = dwindle
 }
 
@@ -48,25 +51,20 @@ dwindle {
     preserve_split = yes
 }
 
-master {
-    new_is_master = true
-}
-
 gestures {
     workspace_swipe = off
 }
 
-
 $mainMod = SUPER
 
-bind = $mainMod, Return, exec, kitty
+bind = $mainMod, Return, exec, alacritty
 bind = $mainMod_SHIFT, Return, exec, firefox
 
 bind = $mainMod, Q, killactive, 
 bind = $mainMod, M, exit, 
 bind = $mainMod, E, exec, dolphin
 bind = $mainMod, V, togglefloating, 
-bind = $mainMod, R, exec, wofi --show drun
+bind = $mainMod, Space, exec, wofi --show drun
 
 bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
@@ -100,3 +98,4 @@ bind = $mainMod, mouse_up, workspace, e-1
 
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
+''
