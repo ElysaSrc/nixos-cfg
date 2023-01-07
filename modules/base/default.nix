@@ -9,6 +9,14 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # Enable flakes
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+    # Default programs installed
+    environment.systemPackages = with pkgs; [
+      git
+    ];
+
     # Locales
     i18n = {
       defaultLocale = "en_US.UTF-8";
@@ -62,6 +70,11 @@ in {
         ${import ./fish_theme.nix { lib = pkgs.lib; }}
         ${pkgs.starship}/bin/starship init fish | source
       '';
+      shellAliases = {
+        "nxs" = "sudo nixos-rebuild switch";
+        "nxb" = "sudo nixos-rebuild boot";
+        "ngc" = "sudo nix-collect-garbage -d";
+      };
     };
 
     # Base common user configuration
