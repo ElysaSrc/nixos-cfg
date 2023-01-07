@@ -1,5 +1,7 @@
+{lib}:
+
 let
-  c = import ../lib/colors.nix { lib = lib; };
+  c = import ../../../lib/colors.nix { lib = lib; };
 in ''
 monitor=HDMI-A-2,3840x2160,1920x0,2
 monitor=DP-1,1920x1080,3840x0,1
