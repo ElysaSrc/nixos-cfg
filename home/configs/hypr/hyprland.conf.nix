@@ -1,4 +1,4 @@
-{ lib }:
+{ lib, pkgs }:
 
 let
   c = import ../../../lib/colors.nix { lib = lib; };
@@ -6,6 +6,8 @@ in ''
 monitor=HDMI-A-2,3840x2160,1920x0,2
 monitor=DP-1,1920x1080,3840x0,1
 monitor=DP-2,1920x1080,0x0,1
+
+exec-once=${pkgs.swaybg}/bin/swaybg --image ${./wall.jpg}
 
 input {
     kb_layout = fr
@@ -65,7 +67,6 @@ bind = $mainMod, Space, exec, wofi --show drun
 
 bind = $mainMod, Q, killactive, 
 bind = $mainMod, M, exit, 
-bind = $mainMod, E, exec, dolphin
 bind = $mainMod, V, togglefloating, 
 bind = $mainMod, F, fullscreen, 0
 

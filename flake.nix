@@ -19,6 +19,9 @@
 
     # vscode-server fix
     vscode-server.url = "github:msteen/nixos-vscode-server";
+
+    # agenix
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = { self, ... }@inputs:
@@ -63,6 +66,7 @@
             home-manager.nixosModules.home-manager
             hyprland.nixosModules.default
             vscode-server.nixosModule
+            agenix.nixosModule
           ];
         };
       })

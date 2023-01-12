@@ -34,7 +34,7 @@ in {
     security.rtkit.enable = true;
     programs.dconf.enable = true;
 
-    # Enable home (liked to UI)
+    # Enable home (linked to UI)
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;

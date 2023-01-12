@@ -6,6 +6,12 @@ let
 in {
   options.elysa.base = {
     enable = mkEnableOption "Base items (boot, user, timezone, remote access)";
+
+    extraGroups = mkOption {
+      type = types.listOf types.str;
+      default = [];
+      description = lib.mdDoc "Elysa's auxiliary groups.";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -88,9 +94,9 @@ in {
           description = "Élysa";
           home = "/home/elysa";
           createHome = true;
+          extraGroups =  [ "wheel" ] ++ cfg.extraGroups;
           isSystemUser = false;
           isNormalUser = true;
-          extraGroups = [ "wheel" ];
           shell = pkgs.fish;
         };
       };

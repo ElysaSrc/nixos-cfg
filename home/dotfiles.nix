@@ -11,7 +11,10 @@ let
       value =
         if (hasSuffix ".nix" file) then {
           # If source is nix file, import with passing lib
-          text = import (./configs + "/${folder}/${file}") { lib = lib; };
+          text = import (./configs + "/${folder}/${file}") {
+            lib = lib;
+            pkgs = pkgs;
+          };
         } else {
           # If source is flat file
           source = ./configs + "/${folder}/${file}";

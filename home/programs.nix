@@ -16,6 +16,7 @@
     qbittorrent
     vlc
     wofi
+    virt-manager
   ];
 
   programs.git = {

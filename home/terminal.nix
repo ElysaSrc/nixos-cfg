@@ -9,7 +9,6 @@ in {
       window = {
         opacity = 0.8;
       };
-
       colors = {
         primary = {
           background = "0x${c.nohex c.background.hard}";

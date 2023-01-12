@@ -1,4 +1,4 @@
-{ lib }:
+{ lib, ... }:
 
 let
   c = import ../../../lib/colors.nix { lib = lib; };

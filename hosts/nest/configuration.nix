@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./nvidia.nix
+    ./vm.nix
   ];
 
   networking.hostName = "nest";
@@ -13,16 +14,15 @@
   };
 
   programs.steam.enable = true;
-  services = {
-    xserver.layout = "fr";
-    jellyfin = {
-      enable = true;
-      openFirewall = true;
-    };
-  };
+  environment.systemPackages = with pkgs; [
+    steam-run
+  ];
 
   elysa = {
-    base.enable = true;
+    base = {
+      enable = true;
+      extraGroups = [ "libvirtd" ];
+    };
 
     services = {
       hyprland = {
@@ -31,7 +31,7 @@
 
       noisegate = {
         enable = true;
-        vadThreshold = "90.0";
+        vadThreshold = "95.0";
         vadGracePeriod = "300";
         retroactiveVad ="5";
       };
